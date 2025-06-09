@@ -1,0 +1,49 @@
+openapi: 3.0.3
+info:
+  title: Moria Gate API
+  description: A secure API to protect sensitive documents via hashing and encryption using blockchain principles.
+  version: 1.0.0
+
+servers:
+  - url: https://localhost:8443
+    description: Local server
+
+paths:
+  /v1/secure-data:
+    post:
+      summary: Hashes and encrypts client data by document
+      operationId: secureData
+      requestBody:
+        description: Document input (CPF or CNPJ)
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                document:
+                  type: string
+                  example: "12345678901"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hash:
+                    type: string
+                    example: "09d0aa738d..."
+                  encrypted:
+                    type: string
+                    example: "aGVsbG8gd29ybGQ="
+                  description:
+                    type: string
+                    example: "Data is hashed and encrypted using AES-GCM"
+        '400':
+          description: Invalid input
+        '404':
+          description: Document not found
+        '500':
+          description: Internal server error
