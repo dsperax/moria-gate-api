@@ -38,10 +38,15 @@ In payment systems and compliance-heavy environments, leaking CPF or CNPJ can re
 
 ## Makefile Commands
 ```bash
-make env       # Set up Docker and seed PostgreSQL
-make start     # Start the API manually
-make swagger   # Open Swagger UI in the browser
-make grafana   # Open Grafana dashboard
+make env        # Set up Docker, build containers, and seed PostgreSQL
+make start      # Start the API manually (runs main.go)
+make swagger    # Open Swagger UI in the browser
+make grafana    # Open Grafana dashboard
+make docs       # Generate Swagger documentation in English and Portuguese
+make docs-en    # Generate Swagger docs in English only
+make docs-pt    # Generate Swagger docs in Portuguese only
+make test       # Run all unit tests with verbose output
+make coverage   # Run tests and open HTML coverage report
 ```
 
 ## Monitoring
@@ -102,10 +107,15 @@ Em sistemas de pagamento e ambientes regulados, vazamentos de CPF ou CNPJ podem 
 
 ## Comandos Makefile
 ```bash
-make env       # Sobe ambiente Docker e popula banco
-make start     # Inicia a API manualmente
-make swagger   # Abre o Swagger no navegador
-make grafana   # Abre o dashboard Grafana
+make env        # Configura o Docker, constrói os containers e popula o PostgreSQL
+make start      # Inicia a API manualmente (executa o main.go)
+make swagger    # Abre a interface do Swagger no navegador
+make grafana    # Abre o painel do Grafana
+make docs       # Gera a documentação Swagger em inglês e português
+make docs-en    # Gera apenas a documentação Swagger em inglês
+make docs-pt    # Gera apenas a documentação Swagger em português
+make test       # Executa todos os testes unitários com saída detalhada
+make coverage   # Gera e abre o relatório de cobertura dos testes em HTML
 ```
 
 ## Monitoramento
